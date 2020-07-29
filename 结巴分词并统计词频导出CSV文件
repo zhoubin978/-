@@ -1,0 +1,25 @@
+#结巴分词并统计词频导出CSV文件
+
+#利用结巴分词
+import jieba
+sentence = open('C:/Users/zhoubin/Desktop/工作簿1.csv',encoding='gbk').read() #此csv文本问纯文字，没有频数
+seg = list(jieba.cut(sentence, cut_all=False)) 
+#TODO:添加分词词典已更加精准的方式分词
+#print(seg)
+
+#对词频统计
+from collections import Counter
+seg = Counter(seg)
+#seg.most_common()#默认查看所有类计数，seg.most_common(2)查看前两位计数
+#TODO:分词统计将标题“\n”的词频统计进去
+
+#导出统计结果
+import pandas as pd
+import openpyxl
+
+df=pd.DataFrame.from_dict(seg,orient='index',columns=['频数'])#将字典元素统计结果转为数据框
+#TODO:seg字典首行为标题字段，转换为数据框类型后，首行字段变为索引
+#df
+#df.to_csv('C:/Users/zhoubin/Desktop/ciyun1.csv') #导出csv
+df.to_excel('C:/Users/zhoubin/Desktop/ciyun1.xlsx') #导出excel
+#TODO:导出文件自动命名，命名规则为“词频统计-‘时间’”
