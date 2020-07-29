@@ -1,0 +1,9 @@
+#Anaconda命令行安装各种库
+#打开Anaconda Prompt
+
+#打开Anaconda所在文件夹
+cd d:/Anaconda
+
+#conda命令安装第三方库
+conda install -c conda-forge jieba
+conda install -c conda-forge openpyxl
