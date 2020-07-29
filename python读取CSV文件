@@ -1,0 +1,5 @@
+#python读取CSV文件
+import numpy as np
+import pandas as pd
+df=pd.read_csv('C:/Users/zhoubin/Desktop/2020-7-12-范思蓝恩官方旗舰店-采集的数据.csv',encoding='gbk')
+df
